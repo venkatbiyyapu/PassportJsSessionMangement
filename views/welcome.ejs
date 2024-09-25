@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body>
+    <div class="container2">
+
+    <h1 class="header">Welcome, <%= username %>!</h1>
+
+    <p><b><i>You are now logged in.</i></b></p>
+
+    <form action="/logout" method="post">
+        <button type="submit">Logout</button>
+    </form>
+    </div>
+
+
+</body>
+<script>
+  let logoutTimer;
+
+  function resetLogoutTimer() {
+    clearTimeout(logoutTimer);
+    logoutTimer = setTimeout(logout, 10000);
+  }
+
+  function logout() {
+    window.location.href = '/logout';
+  }
+
+  document.addEventListener('mousemove', resetLogoutTimer);
+  document.addEventListener('keydown', resetLogoutTimer);
+  document.addEventListener('DOMContentLoaded', resetLogoutTimer);
+
+</script>
+</html>
